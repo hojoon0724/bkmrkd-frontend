@@ -17,8 +17,7 @@ html {
 
 body {
   min-height: 100svh;
-
-  background-color: var(--black);
+  background-color: var(--white);
 }
 
 img,
@@ -42,6 +41,10 @@ p {
   text-wrap: pretty;
 }
 
+a {
+  text-decoration: none;
+}
+
 :root {
   --hue: 170;
   --saturation: 100%;
@@ -49,7 +52,7 @@ p {
   --black: hsl(var(--hue), var(--saturation), 3%);
   --white: hsl(var(--hue), var(--saturation), 98%);
   --dark: hsl(var(--hue), var(--saturation), 10%);
-  --bright: hsl(var(--hue), var(--saturation), 90%);
+  --bright: hsl(var(--hue), 70%, 85%);
 
   --tr-fast: 0.3s ease-in-out;
 }
@@ -60,7 +63,7 @@ p {
   gap: 24px;
   height: 100svh;
   padding: 24px;
-  color: var(--white);
+  color: var(--black);
   max-width: 900px;
   margin: 0 auto;
 }
@@ -81,6 +84,20 @@ p {
   padding: 1rem;
   margin: 24px 0px;
   border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.new-entry-button::after {
+  content: '+';
+  border: 1px solid var(--black);
+  width: 18px;
+  height: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .header-bottom-section {
@@ -90,7 +107,7 @@ p {
   margin: 0rem 1rem;
 }
 .logout-button {
-  background-color: var(--dark);
+  background-color: var(--bright);
   padding: 1rem;
   margin-top: 24px;
   border-radius: 8px;
@@ -112,35 +129,50 @@ p {
   justify-content: space-between;
 }
 .content {
-  width: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 .bookmark-name {
   font-size: 1.5rem;
   height: calc(1.5rem + 5px);
   margin-bottom: 6px;
+  overflow: hidden;
 }
 
 .bookmark-name-form {
-  background-color: var(--black);
   font-size: 1.5rem;
   height: calc(1.5rem + 5px);
-  width: 100%;
-  border: 1px solid var(--bright);
   margin-bottom: 6px;
 }
 
 .bookmark-url {
   opacity: 0.5;
-  width: clamp(35ch, 100%, 80ch);
+  overflow: hidden;
+  height: 1.1rem;
+  overflow: hidden;
 }
+
+.bookmark-name-form,
 .bookmark-url-form {
   width: 100%;
-  background-color: var(--black);
-  border: 1px solid var(--bright);
+  background-color: var(--white);
+  border: 0px solid var(--dark);
+  border-radius: 4px;
+  padding-left: 4px;
 }
+
+.bookmark-name-form:focus,
+.bookmark-url-form:focus,
+.bookmark-name-form:focus-visible,
+.bookmark-url-form:focus-visible {
+  outline-color: red;
+}
+
 .bookmark-buttons {
   display: flex;
-  margin: 0rem 1rem;
+  margin: 0px 8px;
   height: 100%;
   align-items: center;
   min-width: 68px;
@@ -149,33 +181,47 @@ p {
 .edit-button,
 .delete-button {
   margin: 8px;
-  height: 18px;
-  width: 18px;
+  height: 24px;
+  width: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.edit-button {
-  background-image: url(./icons/edit.svg);
+.edit-svg,
+.trash-svg {
+  width: 80%;
+  height: 80%;
+  fill: var(--black);
+  transition: var(--tr-fast);
+  cursor: pointer;
+}
+
+.edit-svg:hover,
+.trash-svg:hover {
+  width: 100%;
+  height: 100%;
+  fill: var(--dark);
+  transition: var(--tr-fast);
 }
 
 .save-button {
+  box-sizing: border-box;
   height: 100%;
-  width: calc(68px + 3rem);
-  margin-left: 1rem;
+  width: 96px;
+  margin-left: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 4px;
-  border: 1px solid var(--white);
+  border: 1px solid var(--black);
   cursor: pointer;
   transition: var(--tr-fast);
 }
 
 .save-button:hover {
-  background-color: var(--bright);
-  color: var(--dark);
+  background-color: var(--dark);
+  color: var(--bright);
   transition: var(--tr-fast);
 }
 
@@ -192,31 +238,29 @@ p {
   .logout-button {
     background-color: var(--dark);
   }
+
   .bookmark-card {
     background-color: var(--dark);
     color: var(--white);
   }
-  .edit-svg {
-    fill: var(--white);
-    cursor: pointer;
-    height: 100%;
-    width: 100%;
-    transition: var(--tr-fast);
+
+  .bookmark-name-form {
+    background-color: var(--black);
+    border: 1px solid var(--bright);
   }
-  .edit-svg:hover {
-    fill: var(--bright);
-    transition: var(--tr-fast);
+
+  .bookmark-url-form {
+    background-color: var(--black);
+    border: 1px solid var(--bright);
   }
+
+  .edit-svg,
   .trash-svg {
     fill: var(--white);
-    cursor: pointer;
-    height: 100%;
-    width: 100%;
-    transition: var(--tr-fast);
   }
+  .edit-svg:hover,
   .trash-svg:hover {
     fill: var(--bright);
-    transition: var(--tr-fast);
   }
 
   .logo-svg {
@@ -226,5 +270,27 @@ p {
   .logo-svg:hover {
     fill: var(--bright);
     transition: var(--tr-fast);
+  }
+
+  .save-button {
+    border-color: var(--white);
+  }
+  .save-button:hover {
+    background-color: var(--bright);
+    color: var(--dark);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .top-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+  }
+  .header {
+    flex-direction: row;
+  }
+  .bookmark-card {
+    margin: 4px 8px;
   }
 }
