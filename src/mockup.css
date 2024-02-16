@@ -43,6 +43,7 @@ p {
 
 a {
   text-decoration: none;
+  color: inherit;
 }
 
 :root {
@@ -54,40 +55,103 @@ a {
   --dark: hsl(var(--hue), var(--saturation), 10%);
   --bright: hsl(var(--hue), 70%, 85%);
 
+  --tr-slow: 0.7s ease-in-out;
   --tr-fast: 0.3s ease-in-out;
 }
 
 .top-container {
   display: grid;
   grid-template-columns: 200px 1fr;
-  gap: 24px;
   height: 100svh;
-  padding: 24px;
+  padding: 16px;
   color: var(--black);
   max-width: 900px;
   margin: 0 auto;
 }
+
+.nav__toggle {
+  display: none;
+  position: absolute;
+  cursor: pointer;
+  margin: 16px 24px;
+  right: 0;
+}
+.nav__toggle svg {
+  width: 24px;
+  fill: var(--black);
+}
+
+.nav__toggle .close {
+  display: none;
+}
+.nav__toggle .menu {
+  margin-top: 0rem;
+}
+.nav__checkbox {
+  display: none;
+}
+.nav__menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+.nav__menu li {
+  list-style: none;
+}
+.nav__menu a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 1.2rem;
+}
+.nav__menu svg {
+  fill: var(--bright);
+}
+#nav__checkbox:checked ~ ul.nav__menu li {
+  display: block;
+}
+#nav__checkbox:checked ~ label.nav__toggle .close {
+  display: block;
+}
+#nav__checkbox:checked ~ label.nav__toggle .menu {
+  display: none;
+}
+
+.mobile-add-new {
+  display: none;
+}
+
 .header {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-.header-top-section {
-  margin: 8px 0px 0px 8px;
+
+.header-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
+
+.header-top-section {
+  margin-top: 8px;
+}
+
 .logo {
-  /* padding: 0rem 1rem; */
-  font-size: 2rem;
+  width: 100%;
 }
 .new-entry-button {
   background-color: var(--bright);
   padding: 1rem;
-  margin: 24px 0px;
+  width: 100%;
   border-radius: 8px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  margin-top: 16px;
 }
 
 .new-entry-button::after {
@@ -117,6 +181,7 @@ a {
   display: flex;
   flex-direction: column;
   overflow: scroll;
+  margin-left: 8px;
 }
 .bookmark-card {
   background-color: var(--bright);
@@ -127,6 +192,10 @@ a {
   border-radius: 8px;
   align-items: center;
   justify-content: space-between;
+}
+
+.bookmark-card a {
+  width: 100%;
 }
 .content {
   width: 100%;
@@ -161,13 +230,6 @@ a {
   border: 0px solid var(--dark);
   border-radius: 4px;
   padding-left: 4px;
-}
-
-.bookmark-name-form:focus,
-.bookmark-url-form:focus,
-.bookmark-name-form:focus-visible,
-.bookmark-url-form:focus-visible {
-  outline-color: red;
 }
 
 .bookmark-buttons {
@@ -225,18 +287,126 @@ a {
   transition: var(--tr-fast);
 }
 
+@media screen and (max-width: 767px) {
+  .top-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+  }
+  .header {
+    flex-direction: column;
+  }
+
+  .nav__toggle {
+    display: block;
+  }
+
+  .nav__menu,
+  .logo {
+    background-color: var(--bright);
+    margin: 0px;
+    display: flex;
+    align-items: center;
+    transition: var(--tr-slow);
+  }
+  .nav__menu .logo svg {
+    fill: var(--dark);
+    height: 28px;
+    margin: 16px 24px;
+  }
+
+  .nav__menu li {
+    display: none;
+  }
+  .nav__menu .logo {
+    margin-right: auto;
+    display: block;
+  }
+  .nav__menu a {
+    text-decoration: none;
+    color: inherit;
+    font-size: 1.2rem;
+  }
+  .header-container {
+    transition: var(--tr-slow);
+  }
+
+  #nav__checkbox:checked ~ ul.nav__menu .header-container {
+    display: block;
+  }
+  #nav__checkbox:checked ~ label.nav__toggle .close {
+    display: block;
+  }
+  #nav__checkbox:checked ~ label.nav__toggle .menu {
+    display: none;
+  }
+
+  .mobile-add-new {
+    color: var(--white);
+    background-color: var(--dark);
+    border: 1px solid var(--black);
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    right: 24px;
+    bottom: 24px;
+    box-shadow: 3px 3px 10px black;
+  }
+
+  .header-top-section {
+    margin: 0px;
+  }
+
+  .bookmarks-container {
+    margin-top: 16px;
+  }
+
+  .bookmarks-container .bookmark-card:last-child {
+    margin-bottom: 72px;
+  }
+
+  .bookmark-card {
+    margin: 4px 8px;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   body {
     background-color: var(--black);
   }
+
+  .nav__menu,
+  .nav__menu,
+  .logo {
+    background-color: var(--dark);
+  }
+
+  .nav__menu .logo svg {
+    fill: var(--white);
+  }
+  .nav__toggle svg {
+    fill: var(--white);
+  }
+
   .top-container {
     color: var(--white);
   }
   .new-entry-button {
-    background-color: var(--dark);
+    background-color: var(--black);
   }
   .logout-button {
-    background-color: var(--dark);
+    background-color: var(--black);
+  }
+
+  .mobile-add-new {
+    color: var(--black);
+    background-color: var(--bright);
+    border: 1px solid var(--white);
   }
 
   .bookmark-card {
@@ -281,16 +451,13 @@ a {
   }
 }
 
-@media screen and (max-width: 767px) {
-  .top-container {
-    display: flex;
-    flex-direction: column;
-    padding: 0px;
+@media screen and (min-width: 768px) and (prefers-color-scheme: dark) {
+  .nav__menu,
+  .logo {
+    background-color: var(--black);
   }
-  .header {
-    flex-direction: row;
-  }
-  .bookmark-card {
-    margin: 4px 8px;
+  .new-entry-button,
+  .logout-button {
+    background-color: var(--dark);
   }
 }
