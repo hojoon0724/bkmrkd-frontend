@@ -1,12 +1,14 @@
+import { Outlet } from 'react-router-dom'
 import './App.css'
-import Header from './components/header'
 import Bookmarks from './pages/bookmarks'
+import Home from './pages/home'
 
 function App() {
   return (
-    <div className="top-container">
-      <Header />
-      <Bookmarks />
+    <div className="App">
+      {/* <Home /> */}
+      {/* <Bookmarks /> */}
+      <Outlet />
     </div>
   )
 }

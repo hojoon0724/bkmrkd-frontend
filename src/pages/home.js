@@ -1,5 +1,17 @@
+import Auth from '../components/auth'
+import Logo from '../components/icons/logo'
+
 function Home() {
-  return <div>home pages</div>
+  return (
+    <div className="landing-container">
+      <div className="logo-box">
+        <Logo />
+      </div>
+      <div className="auth-box">
+        <Auth />
+      </div>
+    </div>
+  )
 }
 
 export default Home

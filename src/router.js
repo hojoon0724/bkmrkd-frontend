@@ -6,17 +6,12 @@ import {
 import App from './App'
 import Home from './pages/home'
 import Bookmarks from './pages/bookmarks'
-import { bookmarksLoader } from './loaders'
-import { createAction, deleteAction, updateAction } from './actions'
+import { linksLoader } from './loaders'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
-      <Route path="" element={<Home />} />
-      <Route path=":id" element={<Bookmarks />} loader={bookmarksLoader} />
-      <Route path="create" action={createAction} /> {/*this is an action and doesnt render an element*/}
-      <Route path="update/:id" action={updateAction} /> {/*<------ we just added this*/}
-      <Route path="delete/:id" action={deleteAction} /> {/*this is an action and doesnt render an element*/}
+      <Route path="" element={<Bookmarks />} loader={linksLoader} />
     </Route>
   )
 )
