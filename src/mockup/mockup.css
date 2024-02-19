@@ -17,7 +17,7 @@ html {
 
 body {
   min-height: 100svh;
-  background-color: var(--bright);
+  background-color: var(--white);
 }
 
 img,
@@ -60,14 +60,11 @@ a {
   --tr-fast: 0.3s ease-in-out;
 }
 
-.App {
-  background-color: var(--white);
-}
-
 .top-container {
   display: grid;
   grid-template-columns: 200px 1fr;
   height: 100svh;
+  padding: 16px;
   color: var(--black);
   max-width: 900px;
   margin: 0 auto;
@@ -105,7 +102,6 @@ a {
 }
 
 .header {
-  padding: 16px 0px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -140,8 +136,7 @@ a {
 
 .new-entry-button::after {
   content: '+';
-  border: 1px solid;
-  color: inherit;
+  border: 1px solid var(--black);
   width: 18px;
   height: 18px;
   display: flex;
@@ -272,112 +267,10 @@ a {
   transition: var(--tr-fast);
 }
 
-/* landing styling */
-.landing-container {
-  width: 100%;
-  max-width: 1200px;
-  height: 100svh;
-  display: flex;
-  justify-content: space-evenly;
-  margin: 0px auto;
-  align-items: center;
-  background-color: var(--bright);
-}
-
-.logo-box,
-.auth-box {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.logo-box > .logo {
-  background-color: var(--bright);
-}
-
-.logo-box {
-  width: 50%;
-}
-
-.logo-box .logo {
-  fill: var(--dark);
-}
-
-.auth-box {
-  width: fit-content;
-}
-
-.login-form-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.login-form-container form {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: 60px;
-  border: 1px solid var(--dark);
-  border-radius: 16px;
-}
-
-.login-form-container form input {
-  background-color: var(--white);
-  color: var(--black);
-}
-
-.login-form-container input {
-  margin: 4px 0px;
-  border-radius: 4px;
-  border: 0px;
-  padding: 4px;
-  color: var(--dark);
-}
-
-.login-form-container input::placeholder {
-  color: var(--bright);
-  opacity: 1;
-}
-
-.login-form-buttons {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
-  margin-top: 16px;
-  border: none;
-}
-
-.login-form-buttons input {
-  width: 100%;
-  padding: 4px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
-  margin: 0px;
-  border-radius: 4px;
-  background-color: var(--bright);
-  border: 1px solid var(--dark);
-  transition: var(--tr-fast);
-  cursor: pointer;
-}
-
-.login-form-buttons input:hover {
-  background-color: var(--dark);
-  color: var(--bright);
-  transition: var(--tr-fast);
-}
-
 @media screen and (max-width: 767px) {
   .top-container {
     display: flex;
     flex-direction: column;
-    padding: 0px;
-  }
-
-  .header {
     padding: 0px;
   }
   .header,
@@ -387,28 +280,6 @@ a {
     width: 100%;
     background-color: var(--dark);
     align-items: center;
-  }
-
-  .landing-container {
-    flex-direction: column;
-  }
-
-  .landing-container > * {
-    width: min(400px, 100svw);
-    height: fit-content;
-  }
-
-  .landing-container > .logo-box > .logo svg {
-    height: fit-content;
-    background-color: inherit;
-  }
-
-  .logo-box > .logo {
-    background-color: var(--bright);
-  }
-
-  .login-form-container {
-    width: 100%;
   }
 
   .logout-button {
@@ -478,9 +349,7 @@ a {
 }
 
 @media (prefers-color-scheme: dark) {
-  body,
-  .App,
-  .landing-container {
+  body {
     background-color: var(--black);
   }
 
@@ -488,36 +357,6 @@ a {
   .nav__menu,
   .logo {
     background-color: var(--dark);
-  }
-
-  .logo-box .logo {
-    background-color: var(--black);
-    fill: var(--bright);
-  }
-
-  .login-form-container form {
-    border: 1px solid var(--bright);
-  }
-
-  .login-form-container form input {
-    background-color: var(--dark);
-    color: var(--white);
-  }
-
-  .login-form-buttons input {
-    border: 1px solid var(--dark);
-    transition: var(--tr-fast);
-    cursor: pointer;
-  }
-
-  .login-form-buttons input:hover {
-    background-color: var(--bright);
-    color: var(--black);
-  }
-
-  .login-form-container input::placeholder {
-    color: var(--bright);
-    opacity: 0.3;
   }
 
   .nav__menu .logo svg {
@@ -621,8 +460,5 @@ a {
     fill: var(--black);
     height: 28px;
     margin: 16px 24px;
-  }
-  .logo-box > .logo {
-    background-color: var(--black);
   }
 }

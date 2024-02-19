@@ -1,0 +1,140 @@
+[
+  {
+    "name": "OpenAI - Advancing Digital Intelligence",
+    "url": "https://www.openai.com/",
+    "username": "default",
+    "_id": "a1b2c3d4e5f6g7h8i9j0k1l"
+  },
+  {
+    "name": "GitHub - Where the world builds software",
+    "url": "https://github.com/",
+    "username": "default",
+    "_id": "m2n3o4p5q6r7s8t9u0v1w"
+  },
+  {
+    "name": "Stack Overflow - Where Developers Learn, Share, & Build Careers",
+    "url": "https://stackoverflow.com/",
+    "username": "default",
+    "_id": "x1y2z3a4b5c6d7e8f9g0h1i"
+  },
+  {
+    "name": "Wikipedia - The Free Encyclopedia",
+    "url": "https://en.wikipedia.org/wiki/Main_Page",
+    "username": "default",
+    "_id": "j2k3l4m5n6o7p8q9r0s1t"
+  },
+  {
+    "name": "YouTube - Enjoy the videos and music you love",
+    "url": "https://www.youtube.com/",
+    "username": "default",
+    "_id": "u2v3w4x5y6z7a8b9c0d1e"
+  },
+  {
+    "name": "Google - Search the world's information, including webpages",
+    "url": "https://www.google.com/",
+    "username": "default",
+    "_id": "f2g3h4i5j6k7l8m9n0o1p"
+  },
+  {
+    "name": "Medium - Where good ideas find you",
+    "url": "https://medium.com/",
+    "username": "default",
+    "_id": "q2r3s4t5u6v7w8x9y0z1a"
+  },
+  {
+    "name": "Amazon - Online Shopping for Electronics, Apparel, Computers, Books, DVDs & more",
+    "url": "https://www.amazon.com/",
+    "username": "default",
+    "_id": "b2c3d4e5f6g7h8i9j0k1l"
+  },
+  {
+    "name": "Twitter - What's happening?",
+    "url": "https://twitter.com/",
+    "username": "default",
+    "_id": "n2o3p4q5r6s7t8u9v0w1x"
+  },
+  {
+    "name": "Reddit - The front page of the internet",
+    "url": "https://www.reddit.com/",
+    "username": "default",
+    "_id": "y2z3a4b5c6d7e8f9g0h1i"
+  },
+  {
+    "name": "Netflix - Watch TV Shows Online, Watch Movies Online",
+    "url": "https://www.netflix.com/",
+    "username": "default",
+    "_id": "j2k3l4m5n6o7p8q9r0s1t"
+  },
+  {
+    "name": "LinkedIn - World’s Largest Professional Network",
+    "url": "https://www.linkedin.com/",
+    "username": "default",
+    "_id": "x1y2z3a4b5c6d7e8f9g0h1i"
+  },
+  {
+    "name": "Etsy - Shop for handmade, vintage, custom, and unique gifts for everyone",
+    "url": "https://www.etsy.com/",
+    "username": "default",
+    "_id": "u2v3w4x5y6z7a8b9c0d1e"
+  },
+  {
+    "name": "BBC News - Home",
+    "url": "https://www.bbc.com/news",
+    "username": "default",
+    "_id": "j2k3l4m5n6o7p8q9r0s1t"
+  },
+  {
+    "name": "NASA - National Aeronautics and Space Administration",
+    "url": "https://www.nasa.gov/",
+    "username": "default",
+    "_id": "x1y2z3a4b5c6d7e8f9g0h1i"
+  },
+  {
+    "name": "Apple - Official Website",
+    "url": "https://www.apple.com/",
+    "username": "default",
+    "_id": "u2v3w4x5y6z7a8b9c0d1e"
+  },
+  {
+    "name": "Khan Academy - Free Online Courses, Lessons & Practice",
+    "url": "https://www.khanacademy.org/",
+    "username": "default",
+    "_id": "f2g3h4i5j6k7l8m9n0o1p"
+  },
+  {
+    "name": "Adobe - Creative Cloud",
+    "url": "https://www.adobe.com/",
+    "username": "default",
+    "_id": "q2r3s4t5u6v7w8x9y0z1a"
+  },
+  {
+    "name": "WordPress - Blog Tool, Publishing Platform, and CMS",
+    "url": "https://wordpress.org/",
+    "username": "default",
+    "_id": "b2c3d4e5f6g7h8i9j0k1l"
+  },
+  {
+    "name": "Pinterest - Discover recipes, home ideas, style inspiration, and other ideas to try",
+    "url": "https://www.pinterest.com/",
+    "username": "default",
+    "_id": "n2o3p4q5r6s7t8u9v0w1x"
+  },
+  {
+    "name": "Merriam-Webster - Dictionary and Thesaurus",
+    "url": "https://www.merriam-webster.com/",
+    "username": "default",
+    "_id": "y2z3a4b5c6d7e8f9g0h1i"
+  },
+  {
+    "name": "National Geographic - Inspiring People to Care About the Planet",
+    "url": "https://www.nationalgeographic.com/",
+    "username": "default",
+    "_id": "j2k3l4m5n6o7p8q9r0s1t"
+  },
+  {
+    "name": "TED - Ideas worth spreading",
+    "url": "https://www.ted.com/",
+    "username": "default",
+    "_id": "x1y2z3a4b5c6d7e8f9g0h1i"
+  }
+]
