@@ -1,13 +1,18 @@
 import EditBtn from './icons/edit'
 import DeleteBtn from './icons/delete'
 
+const placeholderName = 'Google'
+const placeholderUrl = 'https://www.google.com/'
+
 function BookmarkCard() {
   return (
     <div className="bookmark-card">
-      <div className="content">
-        <div className="bookmark-name">name goes here</div>
-        <div className="bookmark-url">https://www.google.com/</div>
-      </div>
+      <a href={placeholderUrl}>
+        <div className="content">
+          <div className="bookmark-name">{placeholderName}</div>
+          <div className="bookmark-url">{placeholderUrl}</div>
+        </div>
+      </a>
       <div className="bookmark-buttons">
         <EditBtn />
         <DeleteBtn />

@@ -299,7 +299,6 @@ a {
     margin: 0px;
     display: flex;
     align-items: center;
-    transition: var(--tr-slow);
   }
   .nav__menu .logo svg {
     fill: var(--white);
@@ -456,7 +455,6 @@ a {
     margin: 0px;
     display: flex;
     align-items: center;
-    transition: var(--tr-slow);
   }
   .nav__menu .logo svg {
     fill: var(--black);

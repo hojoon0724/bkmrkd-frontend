@@ -1,5 +1,4 @@
 import './App.css'
-import './mockup.css'
 import Header from './components/header'
 import Bookmarks from './pages/bookmarks'
 
