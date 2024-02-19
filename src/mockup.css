@@ -48,7 +48,7 @@ a {
 
 :root {
   font-family: roboto;
-  --hue: 100;
+  --hue: 200;
   --saturation: 100%;
 
   --black: hsl(var(--hue), var(--saturation), 3%);
