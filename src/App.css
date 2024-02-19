@@ -332,6 +332,12 @@ a {
   border-radius: 4px;
   border: 0px;
   padding: 4px;
+  color: var(--dark);
+}
+
+.login-form-container input::placeholder {
+  color: var(--bright);
+  opacity: 1;
 }
 
 .login-form-buttons {
@@ -507,6 +513,11 @@ a {
   .login-form-buttons input:hover {
     background-color: var(--bright);
     color: var(--black);
+  }
+
+  .login-form-container input::placeholder {
+    color: var(--bright);
+    opacity: 0.3;
   }
 
   .nav__menu .logo svg {
