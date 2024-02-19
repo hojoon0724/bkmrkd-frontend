@@ -12,6 +12,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route path="" element={<Bookmarks />} loader={linksLoader} />
+      <Route path="/user" element={<Home />} />
     </Route>
   )
 )
