@@ -4,7 +4,7 @@ import NewEntryBtn from './header/newEntryBtn'
 import Hello from './header/hello'
 import LogoutBtn from './header/logoutBtn'
 
-function Header() {
+function Header({ onButtonClick }) {
   return (
     <div className="header">
       <MobileAddNew />
@@ -12,7 +12,8 @@ function Header() {
         <div class="header-container">
           <div class="header-top-section">
             <Logo />
-            <NewEntryBtn />
+
+            <NewEntryBtn action={onButtonClick} />
           </div>
           <div className="header-bottom-section">
             <Hello />

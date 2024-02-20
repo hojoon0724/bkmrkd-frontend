@@ -6,7 +6,7 @@ function BookmarkCard({ data }) {
     <div className="bookmark-card">
       <a href={data.url}>
         <div className="content">
-          <div className="bookmark-name">{data.name}</div>
+          <div className="bookmark-name">{data.title}</div>
           <div className="bookmark-url">{data.url}</div>
         </div>
       </a>
