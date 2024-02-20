@@ -20,9 +20,10 @@ function Bookmarks() {
       <Headers onButtonClick={handleNewBookmark} />
       <div className="bookmarks-container">
         <BookmarkForm />
-        {data.map(bookmarkData => {
+        {data.reverse().map(bookmarkData => {
           return <BookmarkCard data={bookmarkData} />
         })}
+        <div className="end-list-spacer"></div>
       </div>
     </div>
   )

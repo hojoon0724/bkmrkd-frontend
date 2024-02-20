@@ -1,6 +1,6 @@
-function DeleteBtn() {
+function DeleteBtn({ onDeleteClick }) {
   return (
-    <div class="delete-button">
+    <div class="delete-button" onClick={onDeleteClick}>
       <svg class="trash-svg" width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path
           fill-rule="evenodd"
