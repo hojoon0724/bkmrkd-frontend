@@ -105,7 +105,7 @@ a {
 }
 
 .header {
-  padding: 16px 0px;
+  padding: 16px 0px 16px 16px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -167,6 +167,7 @@ a {
   display: flex;
   flex-direction: column;
   overflow: scroll;
+  padding: 8px 8px 8px 0px;
   margin-left: 8px;
 }
 .bookmark-card {
@@ -586,11 +587,18 @@ a {
   }
 
   .save-button {
-    border-color: var(--white);
+    /* border-color: var(--dark); */
   }
-  .save-button:hover {
+
+  .save-button input {
+    background-color: var(--dark);
+    border: 1px solid var(--bright);
+    color: var(--bright);
+  }
+
+  .save-button input:hover {
     background-color: var(--bright);
-    color: var(--dark);
+    color: var(--black);
   }
 }
 
