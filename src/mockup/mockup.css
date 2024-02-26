@@ -17,7 +17,7 @@ html {
 
 body {
   min-height: 100svh;
-  background-color: var(--bright);
+  background-color: var(--white);
 }
 
 img,
@@ -60,14 +60,11 @@ a {
   --tr-fast: 0.3s ease-in-out;
 }
 
-.App {
-  background-color: var(--white);
-}
-
 .top-container {
   display: grid;
   grid-template-columns: 200px 1fr;
   height: 100svh;
+  padding: 16px;
   color: var(--black);
   max-width: 900px;
   margin: 0 auto;
@@ -105,7 +102,6 @@ a {
 }
 
 .header {
-  padding: 16px 0px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -136,13 +132,11 @@ a {
   align-items: center;
   cursor: pointer;
   margin-top: 16px;
-  border: 0px;
 }
 
 .new-entry-button::after {
   content: '+';
-  border: 1px solid;
-  color: inherit;
+  border: 1px solid var(--black);
   width: 18px;
   height: 18px;
   display: flex;
@@ -178,7 +172,6 @@ a {
   border-radius: 8px;
   align-items: center;
   justify-content: space-between;
-  height: 5rem;
 }
 
 .bookmark-card a {
@@ -189,8 +182,6 @@ a {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  height: 100%;
-  justify-content: space-between;
 }
 .bookmark-name {
   font-size: 1.5rem;
@@ -257,9 +248,6 @@ a {
 }
 
 .save-button {
-  height: 100%;
-}
-.save-button input {
   box-sizing: border-box;
   height: 100%;
   width: 96px;
@@ -268,112 +256,12 @@ a {
   align-items: center;
   justify-content: center;
   border-radius: 4px;
-  background-color: var(--bright);
   border: 1px solid var(--black);
   cursor: pointer;
   transition: var(--tr-fast);
-  padding: auto;
 }
 
-.save-button input:hover {
-  background-color: var(--dark);
-  color: var(--bright);
-  transition: var(--tr-fast);
-}
-
-/* landing styling */
-.landing-container {
-  width: 100%;
-  max-width: 1200px;
-  height: 100svh;
-  display: flex;
-  justify-content: space-evenly;
-  margin: 0px auto;
-  align-items: center;
-  background-color: var(--bright);
-}
-
-.logo-box,
-.auth-box {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.logo-box > .logo {
-  background-color: var(--bright);
-}
-
-.logo-box {
-  width: 50%;
-}
-
-.logo-box .logo {
-  fill: var(--dark);
-}
-
-.auth-box {
-  width: fit-content;
-}
-
-.login-form-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.login-form-container form {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: 60px;
-  border: 1px solid var(--dark);
-  border-radius: 16px;
-}
-
-.login-form-container form input {
-  background-color: var(--white);
-  color: var(--black);
-}
-
-.login-form-container input {
-  margin: 4px 0px;
-  border-radius: 4px;
-  border: 0px;
-  padding: 4px;
-  color: var(--dark);
-}
-
-.login-form-container input::placeholder {
-  color: var(--bright);
-  opacity: 1;
-}
-
-.login-form-buttons {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
-  margin-top: 16px;
-  border: none;
-}
-
-.login-form-buttons input {
-  width: 100%;
-  padding: 4px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
-  margin: 0px;
-  border-radius: 4px;
-  background-color: var(--bright);
-  border: 1px solid var(--dark);
-  transition: var(--tr-fast);
-  cursor: pointer;
-}
-
-.login-form-buttons input:hover {
+.save-button:hover {
   background-color: var(--dark);
   color: var(--bright);
   transition: var(--tr-fast);
@@ -385,10 +273,6 @@ a {
     flex-direction: column;
     padding: 0px;
   }
-
-  .header {
-    padding: 0px;
-  }
   .header,
   .nav__menu,
   .header-container {
@@ -396,28 +280,6 @@ a {
     width: 100%;
     background-color: var(--dark);
     align-items: center;
-  }
-
-  .landing-container {
-    flex-direction: column;
-  }
-
-  .landing-container > * {
-    width: min(400px, 100svw);
-    height: fit-content;
-  }
-
-  .landing-container > .logo-box > .logo svg {
-    height: fit-content;
-    background-color: inherit;
-  }
-
-  .logo-box > .logo {
-    background-color: var(--bright);
-  }
-
-  .login-form-container {
-    width: 100%;
   }
 
   .logout-button {
@@ -477,7 +339,7 @@ a {
   .bookmarks-container .bookmark-card:first-child {
     margin-top: 8px;
   }
-  .end-list-spacer {
+  .bookmarks-container .bookmark-card:last-child {
     margin-bottom: 72px;
   }
 
@@ -487,9 +349,7 @@ a {
 }
 
 @media (prefers-color-scheme: dark) {
-  body,
-  .App,
-  .landing-container {
+  body {
     background-color: var(--black);
   }
 
@@ -497,36 +357,6 @@ a {
   .nav__menu,
   .logo {
     background-color: var(--dark);
-  }
-
-  .logo-box .logo {
-    background-color: var(--black);
-    fill: var(--bright);
-  }
-
-  .login-form-container form {
-    border: 1px solid var(--bright);
-  }
-
-  .login-form-container form input {
-    background-color: var(--dark);
-    color: var(--white);
-  }
-
-  .login-form-buttons input {
-    border: 1px solid var(--dark);
-    transition: var(--tr-fast);
-    cursor: pointer;
-  }
-
-  .login-form-buttons input:hover {
-    background-color: var(--bright);
-    color: var(--black);
-  }
-
-  .login-form-container input::placeholder {
-    color: var(--bright);
-    opacity: 0.3;
   }
 
   .nav__menu .logo svg {
@@ -630,8 +460,5 @@ a {
     fill: var(--black);
     height: 28px;
     margin: 16px 24px;
-  }
-  .logo-box > .logo {
-    background-color: var(--black);
   }
 }
