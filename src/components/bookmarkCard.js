@@ -6,12 +6,15 @@ function BookmarkCard({ data }) {
   const [siteTitle, setSiteTitle] = useState()
   const [siteUrl, setSiteUrl] = useState()
 
-  function handleEdit() {
+  async function handleEdit() {
     console.log(`edit bookmark action`)
   }
 
-  function handleDelete() {
+  async function handleDelete() {
     console.log(`delete bookmark action`)
+    await fetch(`/bookmark/${data._id}`, {
+      method: 'DELETE'
+    })
   }
 
   return (

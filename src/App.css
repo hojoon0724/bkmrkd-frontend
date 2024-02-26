@@ -586,10 +586,6 @@ a {
     transition: var(--tr-fast);
   }
 
-  .save-button {
-    /* border-color: var(--dark); */
-  }
-
   .save-button input {
     background-color: var(--dark);
     border: 1px solid var(--bright);

@@ -3,15 +3,15 @@ import { redirect } from 'react-router-dom'
 const URL = process.env.REACT_APP_URL
 
 export const updateAction = async ({ request, params }) => {
-  const formData = await request.formData() //the request object has data for forms. We can access it.
+  const formData = await request.formData()
   const updatedBookmark = {
-    name: formData.get('name'), //we can get the value of each form field by using the .get(<value of name ('name') property on the input>)
-    image: formData.get('image'), //we can get the value of each form field by using the .get(<value of name ('image') property on the input>)
-    title: formData.get('title') //we can get the value of each form field by using the .get(<value of name('title')  property on the input>)
+    title: formData.get('title'),
+    url: formData.get('url'),
+    username: formData.get('username')
   }
   console.log(updatedBookmark)
 
-  await fetch(`${URL}/people/${params.id}`, {
+  await fetch(`${URL}/bookmark/${params.id}`, {
     method: 'put',
     headers: {
       'Content-Type': 'application/json'
@@ -19,29 +19,29 @@ export const updateAction = async ({ request, params }) => {
     body: JSON.stringify(updatedBookmark)
   })
 
-  return redirect('/') //go back to the landing page
+  return redirect('/')
 }
 
 export const createAction = async ({ request }) => {
-  const formData = await request.formData() //the request object has data for forms. We can access it.
-  const createdPerson = {
-    name: formData.get('name'),
-    image: formData.get('image'),
-    title: formData.get('title')
+  const formData = await request.formData()
+  const createdBookmark = {
+    title: formData.get('title'),
+    url: formData.get('url'),
+    username: formData.get('username')
   }
-  console.log(createdPerson)
+  console.log(createdBookmark)
 
-  await fetch(`${URL}/people`, {
+  await fetch(`${URL}/bookmark`, {
     method: 'post',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(createdPerson)
+    body: JSON.stringify(createdBookmark)
   })
 }
 
 export const deleteAction = async ({ params }) => {
-  await fetch(`${URL}/people/${params.id}`, {
+  await fetch(`${URL}/bookmark/${params.id}`, {
     method: 'delete'
   })
 
