@@ -136,6 +136,7 @@ a {
   align-items: center;
   cursor: pointer;
   margin-top: 16px;
+  border: 0px;
 }
 
 .new-entry-button::after {
@@ -177,6 +178,7 @@ a {
   border-radius: 8px;
   align-items: center;
   justify-content: space-between;
+  height: 5rem;
 }
 
 .bookmark-card a {
@@ -187,6 +189,8 @@ a {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  height: 100%;
+  justify-content: space-between;
 }
 .bookmark-name {
   font-size: 1.5rem;
@@ -253,6 +257,9 @@ a {
 }
 
 .save-button {
+  height: 100%;
+}
+.save-button input {
   box-sizing: border-box;
   height: 100%;
   width: 96px;
@@ -261,12 +268,14 @@ a {
   align-items: center;
   justify-content: center;
   border-radius: 4px;
+  background-color: var(--bright);
   border: 1px solid var(--black);
   cursor: pointer;
   transition: var(--tr-fast);
+  padding: auto;
 }
 
-.save-button:hover {
+.save-button input:hover {
   background-color: var(--dark);
   color: var(--bright);
   transition: var(--tr-fast);
@@ -468,7 +477,7 @@ a {
   .bookmarks-container .bookmark-card:first-child {
     margin-top: 8px;
   }
-  .bookmarks-container .bookmark-card:last-child {
+  .end-list-spacer {
     margin-bottom: 72px;
   }
 
