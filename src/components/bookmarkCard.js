@@ -15,7 +15,7 @@ function BookmarkCard({ data }) {
   }
 
   return (
-    <div className="bookmark-card">
+    <div key={data._id} className="bookmark-card">
       <a href={data.url}>
         <div className="content">
           <div className="bookmark-name">{data.title}</div>

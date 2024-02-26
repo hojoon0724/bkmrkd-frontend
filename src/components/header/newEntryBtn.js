@@ -1,6 +1,6 @@
 function NewEntryBtn({ action }) {
   return (
-    <button onClick={action} class="new-entry-button">
+    <button onClick={action} className="new-entry-button">
       New Bookmark
     </button>
   )

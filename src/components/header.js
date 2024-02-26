@@ -9,8 +9,8 @@ function Header({ onButtonClick }) {
     <div className="header">
       <MobileAddNew />
       <ul className="nav__menu">
-        <div class="header-container">
-          <div class="header-top-section">
+        <div className="header-container">
+          <div className="header-top-section">
             <Logo />
 
             <NewEntryBtn action={onButtonClick} />
