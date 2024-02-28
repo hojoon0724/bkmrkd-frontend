@@ -2,6 +2,8 @@ import EditBtn from './icons/edit'
 import DeleteBtn from './icons/delete'
 import { useState } from 'react'
 
+const URL = process.env.REACT_APP_URL
+
 function BookmarkCard({ data }) {
   const [siteTitle, setSiteTitle] = useState()
   const [siteUrl, setSiteUrl] = useState()
@@ -12,7 +14,7 @@ function BookmarkCard({ data }) {
 
   async function handleDelete() {
     console.log(`delete bookmark action`)
-    await fetch(`/bookmark/${data._id}`, {
+    await fetch(`${URL}/bookmark/${data._id}`, {
       method: 'DELETE'
     })
   }

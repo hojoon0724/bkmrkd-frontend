@@ -38,6 +38,7 @@ export const createAction = async ({ request }) => {
     },
     body: JSON.stringify(createdBookmark)
   })
+  return redirect('/')
 }
 
 export const deleteAction = async ({ params }) => {
