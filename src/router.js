@@ -3,13 +3,14 @@ import App from './App';
 import Home from './pages/home';
 import Bookmarks from './pages/bookmarks';
 import { bookmarksLoader } from './loaders';
-import { createAction, updateAction, deleteAction } from './actions';
+import { createAction, updateAction, deleteAction, loginAction, signupAction } from './actions';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route path="" element={<Home />}>
         <Route path="login" action={loginAction} />
+        <Route path="signup" action={signupAction} />
       </Route>
       <Route path="dashboard" element={<Bookmarks />} loader={bookmarksLoader} />
       <Route path="create" action={createAction} />

@@ -50,5 +50,10 @@ export const deleteAction = async ({ params }) => {
 };
 
 export const loginAction = async ({ req }) => {
-  const formData = await req.formData();
+  console.log(`login action`);
+  // const formData = await req.formData();
+};
+
+export const signupAction = async ({ req }) => {
+  console.log(`signup action`);
 };
