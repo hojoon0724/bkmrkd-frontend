@@ -1,20 +1,20 @@
-import { createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom'
-import App from './App'
-import Home from './pages/home'
-import Bookmarks from './pages/bookmarks'
-import { bookmarksLoader } from './loaders'
-import { createAction, updateAction, deleteAction } from './actions'
+import { createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom';
+import App from './App';
+import Home from './pages/home';
+import Bookmarks from './pages/bookmarks';
+import { bookmarksLoader } from './loaders';
+import { createAction, updateAction, deleteAction } from './actions';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
-      <Route path="" element={<Bookmarks />} loader={bookmarksLoader} />
+      <Route path="" element={<Home />} />
+      <Route path="dashboard" element={<Bookmarks />} loader={bookmarksLoader} />
       <Route path="create" action={createAction} />
       <Route path="update/:id" action={updateAction} />
       <Route path="delete/:id" action={deleteAction} />
-      <Route path="/user" element={<Home />} />
     </Route>
   )
-)
+);
 
-export default router
+export default router;
