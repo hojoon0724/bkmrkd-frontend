@@ -14,6 +14,11 @@ function BookmarkCard({ data }) {
 
   async function handleDelete() {
     console.log(`delete bookmark action`)
+
+    // await fetch(`/bookmark/${data._id}`, {
+    //   method: 'DELETE'
+    // })
+
     await fetch(`${URL}/bookmark/${data._id}`, {
       method: 'DELETE'
     })
@@ -30,6 +35,10 @@ function BookmarkCard({ data }) {
       <div className="bookmark-buttons">
         <EditBtn onEditClick={handleEdit} />
         <DeleteBtn onDeleteClick={handleDelete} />
+        {/* 
+        <Form action="/delete" method="post">
+          <input type="submit" value={'delete'} />
+        </Form> */}
       </div>
     </div>
   )
