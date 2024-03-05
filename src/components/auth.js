@@ -1,20 +1,45 @@
 import { useState } from 'react';
+import { redirect } from 'react-router-dom';
 
 const URL = process.env.REACT_APP_URL;
 
 function Auth() {
-  const [username, setUsername] = useState();
-  const [password, setPassword] = useState();
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
-  function handleSignup(e) {
+  async function handleSignup(e) {
     e.preventDefault();
-    console.log(`handle signup ${URL}, username: ${username}`);
-    console.log(`handle signup ${URL}, password: ${password}`);
+    const newUser = {
+      username: username,
+      password: password
+    };
+    const response = await fetch(`${URL}/user/signup`, {
+      method: 'POST',
+      body: JSON.stringify(newUser),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    console.log(response);
   }
-  function handleLogin(e) {
+  async function handleLogin(e) {
     e.preventDefault();
-    console.log(`handle login ${URL}, username: ${username}`);
-    console.log(`handle login ${URL}, password: ${password}`);
+    const userAuth = {
+      username: username,
+      password: password
+    };
+    console.log(userAuth);
+    const response = await fetch(`${URL}/user/login`, {
+      method: 'POST',
+      body: JSON.stringify(userAuth),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    const data = await response.json();
+    console.log(data);
+    localStorage.setItem('token', data.token);
+    return redirect('/dashboard');
   }
 
   return (

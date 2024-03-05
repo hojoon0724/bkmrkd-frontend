@@ -1,21 +1,16 @@
-import Headers from '../components/header'
-import BookmarkCard from '../components/bookmarkCard'
-import BookmarkForm from '../components/bookmarkForm'
-import { useLoaderData } from 'react-router-dom'
-import { useState } from 'react'
+import Headers from '../components/header';
+import BookmarkCard from '../components/bookmarkCard';
+import BookmarkForm from '../components/bookmarkForm';
+import { useLoaderData } from 'react-router-dom';
+import { useState } from 'react';
 
 function Bookmarks() {
-  const data = useLoaderData()
-
-  console.log(data)
-
-  const numberarray = [1, 2, 3, 4, 5]
-
-  const [newBookmark, setNewBookmark] = useState(false)
+  const data = useLoaderData();
+  const [newBookmark, setNewBookmark] = useState('');
 
   function handleNewBookmark() {
-    setNewBookmark(<BookmarkForm />)
-    console.log(`onClickHandleNew`)
+    setNewBookmark(<BookmarkForm />);
+    console.log(`onClickHandleNew`);
   }
 
   return (
@@ -24,12 +19,12 @@ function Bookmarks() {
       <div className="bookmarks-container">
         {newBookmark}
         {data.map(bookmarkData => {
-          return <BookmarkCard data={bookmarkData} />
+          return <BookmarkCard data={bookmarkData} />;
         })}
         <div className="end-list-spacer"></div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Bookmarks
+export default Bookmarks;

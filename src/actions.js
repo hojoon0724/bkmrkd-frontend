@@ -14,12 +14,13 @@ export const updateAction = async ({ request, params }) => {
   await fetch(`${URL}/bookmark/${params.id}`, {
     method: 'put',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('token')}`
     },
     body: JSON.stringify(updatedBookmark)
   });
 
-  return redirect('/');
+  return redirect('/dashboard');
 };
 
 export const createAction = async ({ request }) => {
@@ -29,16 +30,17 @@ export const createAction = async ({ request }) => {
     url: formData.get('url'),
     username: formData.get('username')
   };
-  console.log(createdBookmark);
 
   await fetch(`${URL}/bookmark`, {
     method: 'post',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('token')}`
     },
     body: JSON.stringify(createdBookmark)
   });
-  return redirect('/');
+  console.log(createdBookmark);
+  return redirect('/dashboard');
 };
 
 export const deleteAction = async ({ params }) => {
@@ -51,7 +53,6 @@ export const deleteAction = async ({ params }) => {
 
 export const loginAction = async ({ req }) => {
   console.log(`login action`);
-  // const formData = await req.formData();
 };
 
 export const signupAction = async ({ req }) => {
