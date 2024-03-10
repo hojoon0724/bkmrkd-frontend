@@ -1,8 +1,8 @@
-import Logo from './icons/logo'
-import MobileAddNew from './header/mobileAddnew'
-import NewEntryBtn from './header/newEntryBtn'
-import Hello from './header/hello'
-import LogoutBtn from './header/logoutBtn'
+import Logo from './icons/logo';
+import MobileAddNew from './header/mobileAddnew';
+import NewEntryBtn from './header/newEntryBtn';
+import Hello from './header/hello';
+import LogoutBtn from './header/logoutBtn';
 
 function Header({ onButtonClick }) {
   return (
@@ -22,7 +22,7 @@ function Header({ onButtonClick }) {
         </div>
       </ul>
     </div>
-  )
+  );
 }
 
-export default Header
+export default Header;

@@ -1,27 +1,28 @@
-import EditBtn from './icons/edit'
-import DeleteBtn from './icons/delete'
-import { useState } from 'react'
+import EditBtn from './icons/edit';
+import DeleteBtn from './icons/delete';
+import { useState } from 'react';
+import { Form, useNavigate } from 'react-router-dom';
 
-const URL = process.env.REACT_APP_URL
+const URL = process.env.REACT_APP_URL;
 
 function BookmarkCard({ data }) {
-  const [siteTitle, setSiteTitle] = useState()
-  const [siteUrl, setSiteUrl] = useState()
+  const navigate = useNavigate();
+  const [siteTitle, setSiteTitle] = useState();
+  const [siteUrl, setSiteUrl] = useState();
 
   async function handleEdit() {
-    console.log(`edit bookmark action`)
+    console.log(`edit bookmark action`);
+    setSiteTitle('edit');
   }
 
   async function handleDelete() {
-    console.log(`delete bookmark action`)
-
-    // await fetch(`/bookmark/${data._id}`, {
-    //   method: 'DELETE'
-    // })
-
-    await fetch(`${URL}/bookmark/${data._id}`, {
-      method: 'DELETE'
-    })
+    await fetch(`${URL}/dashboard/${data._id}`, {
+      method: 'DELETE',
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    });
+    navigate('/dashboard');
   }
 
   return (
@@ -35,13 +36,9 @@ function BookmarkCard({ data }) {
       <div className="bookmark-buttons">
         <EditBtn onEditClick={handleEdit} />
         <DeleteBtn onDeleteClick={handleDelete} />
-        {/* 
-        <Form action="/delete" method="post">
-          <input type="submit" value={'delete'} />
-        </Form> */}
       </div>
     </div>
-  )
+  );
 }
 
-export default BookmarkCard
+export default BookmarkCard;

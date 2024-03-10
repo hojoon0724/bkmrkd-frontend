@@ -1,4 +1,4 @@
-import Headers from '../components/header';
+import Header from '../components/header';
 import BookmarkCard from '../components/bookmarkCard';
 import BookmarkForm from '../components/bookmarkForm';
 import { useLoaderData } from 'react-router-dom';
@@ -10,16 +10,15 @@ function Bookmarks() {
 
   function handleNewBookmark() {
     setNewBookmark(<BookmarkForm />);
-    console.log(`onClickHandleNew`);
   }
 
   return (
     <div className="top-container">
-      <Headers onButtonClick={handleNewBookmark} />
+      <Header onButtonClick={handleNewBookmark} />
       <div className="bookmarks-container">
         {newBookmark}
         {data.map(bookmarkData => {
-          return <BookmarkCard data={bookmarkData} />;
+          return <BookmarkCard key={bookmarkData._id} data={bookmarkData} />;
         })}
         <div className="end-list-spacer"></div>
       </div>

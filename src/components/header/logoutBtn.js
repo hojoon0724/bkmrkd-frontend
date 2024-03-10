@@ -1,5 +1,20 @@
+import { useNavigate } from 'react-router-dom';
+import { logoutAction } from '../../actions';
+
 function LogoutBtn() {
-  return <li className="logout-button">Logout </li>
+  const navigate = useNavigate();
+  async function handleLogout() {
+    await logoutAction({});
+    navigate('/');
+  }
+
+  return (
+    <div>
+      <li className="logout-button" onClick={handleLogout}>
+        Logout{' '}
+      </li>
+    </div>
+  );
 }
 
-export default LogoutBtn
+export default LogoutBtn;

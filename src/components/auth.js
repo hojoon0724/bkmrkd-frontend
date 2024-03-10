@@ -1,45 +1,56 @@
 import { useState } from 'react';
-import { redirect } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const URL = process.env.REACT_APP_URL;
 
 function Auth() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
+  let user = {
+    username: username,
+    password: password
+  };
 
   async function handleSignup(e) {
     e.preventDefault();
-    const newUser = {
-      username: username,
-      password: password
-    };
+
     const response = await fetch(`${URL}/user/signup`, {
       method: 'POST',
-      body: JSON.stringify(newUser),
+      body: JSON.stringify(user),
       headers: {
         'Content-Type': 'application/json'
       }
     });
-    console.log(response);
+
+    if (response.status >= 400) {
+      alert(response.statusText);
+      navigate('/');
+    }
+
+    navigate('/');
   }
+
   async function handleLogin(e) {
     e.preventDefault();
-    const userAuth = {
-      username: username,
-      password: password
-    };
-    console.log(userAuth);
+
     const response = await fetch(`${URL}/user/login`, {
       method: 'POST',
-      body: JSON.stringify(userAuth),
+      body: JSON.stringify(user),
       headers: {
         'Content-Type': 'application/json'
       }
     });
+
+    if (response.status >= 400) {
+      alert(response.statusText);
+      navigate('/');
+    }
+
     const data = await response.json();
-    console.log(data);
     localStorage.setItem('token', data.token);
-    return redirect('/dashboard');
+    navigate('/dashboard');
   }
 
   return (
@@ -62,8 +73,12 @@ function Auth() {
           onChange={e => setPassword(e.target.value)}
         />
         <div className="login-form-buttons">
-          <input type="submit" value="Sign Up" onClick={handleSignup} />
-          <input type="submit" value="Login" onClick={handleLogin} />
+          <button type="submit" onClick={handleSignup}>
+            Sign Up
+          </button>
+          <button type="submit" onClick={handleLogin}>
+            Login
+          </button>
         </div>
       </form>
     </div>

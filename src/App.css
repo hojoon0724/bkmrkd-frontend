@@ -161,6 +161,9 @@ a {
   padding: 1rem;
   margin-top: 24px;
   border-radius: 8px;
+  border: 0px;
+  width: 100%;
+  cursor: pointer;
 }
 
 .bookmarks-container {

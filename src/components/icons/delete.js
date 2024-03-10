@@ -14,7 +14,7 @@ function DeleteBtn({ onDeleteClick }) {
         />
       </svg>
     </div>
-  )
+  );
 }
 
-export default DeleteBtn
+export default DeleteBtn;

@@ -1,4 +1,4 @@
-import { redirect } from 'react-router-dom';
+import { redirect, useNavigate } from 'react-router-dom';
 
 const URL = process.env.REACT_APP_URL;
 
@@ -6,12 +6,11 @@ export const updateAction = async ({ request, params }) => {
   const formData = await request.formData();
   const updatedBookmark = {
     title: formData.get('title'),
-    url: formData.get('url'),
-    username: formData.get('username')
+    url: formData.get('url')
   };
   console.log(updatedBookmark);
 
-  await fetch(`${URL}/bookmark/${params.id}`, {
+  await fetch(`${URL}/dashboard/${params.id}`, {
     method: 'put',
     headers: {
       'Content-Type': 'application/json',
@@ -25,13 +24,13 @@ export const updateAction = async ({ request, params }) => {
 
 export const createAction = async ({ request }) => {
   const formData = await request.formData();
+  console.log(formData);
   const createdBookmark = {
     title: formData.get('title'),
-    url: formData.get('url'),
-    username: formData.get('username')
+    url: formData.get('url')
   };
 
-  await fetch(`${URL}/bookmark`, {
+  await fetch(`${URL}/dashboard`, {
     method: 'post',
     headers: {
       'Content-Type': 'application/json',
@@ -44,8 +43,12 @@ export const createAction = async ({ request }) => {
 };
 
 export const deleteAction = async ({ params }) => {
-  await fetch(`${URL}/bookmark/${params.id}`, {
-    method: 'delete'
+  await fetch(`${URL}/dashboard/${params.id}`, {
+    method: 'delete',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('token')}`
+    }
   });
 
   return redirect('/');
@@ -57,4 +60,9 @@ export const loginAction = async ({ req }) => {
 
 export const signupAction = async ({ req }) => {
   console.log(`signup action`);
+};
+
+export const logoutAction = async ({ req }) => {
+  localStorage.removeItem('token');
+  return redirect('/');
 };

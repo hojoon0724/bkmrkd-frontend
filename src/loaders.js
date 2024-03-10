@@ -7,6 +7,9 @@ export const bookmarksLoader = async () => {
     }
   });
   const bookmarks = await response.json();
+  bookmarks.reverse();
   console.log(bookmarks);
   return bookmarks;
 };
+
+export const userLoader = async () => {};

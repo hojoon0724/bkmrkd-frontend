@@ -3,7 +3,7 @@ function NewEntryBtn({ action }) {
     <button onClick={action} className="new-entry-button">
       New Bookmark
     </button>
-  )
+  );
 }
 
-export default NewEntryBtn
+export default NewEntryBtn;

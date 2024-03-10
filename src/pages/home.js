@@ -1,5 +1,5 @@
-import Auth from '../components/auth'
-import Logo from '../components/icons/logo'
+import Auth from '../components/auth';
+import Logo from '../components/icons/logo';
 
 function Home() {
   return (
@@ -11,7 +11,7 @@ function Home() {
         <Auth />
       </div>
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;
