@@ -1,6 +1,6 @@
-function EditBtn({ onEditClick }) {
+function EditBtn({ action }) {
   return (
-    <div className="edit-button" onClick={onEditClick}>
+    <div className="edit-button" onClick={action}>
       <svg className="edit-svg" width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path
           fillRule="evenodd"
@@ -14,7 +14,7 @@ function EditBtn({ onEditClick }) {
         />
       </svg>
     </div>
-  )
+  );
 }
 
-export default EditBtn
+export default EditBtn;
