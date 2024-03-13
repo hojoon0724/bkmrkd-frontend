@@ -50,6 +50,8 @@ function Auth() {
 
     const data = await response.json();
     localStorage.setItem('token', data.token);
+    localStorage.setItem('username', data.username);
+
     navigate('/dashboard');
   }
 
@@ -62,7 +64,7 @@ function Auth() {
           id="username"
           placeholder="username"
           value={username}
-          onChange={e => setUsername(e.target.value)}
+          onChange={(e) => setUsername(e.target.value)}
         />
         <input
           type="password"
@@ -70,7 +72,7 @@ function Auth() {
           id="password"
           placeholder="password"
           value={password}
-          onChange={e => setPassword(e.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <div className="login-form-buttons">
           <button type="submit" onClick={handleSignup}>

@@ -17,7 +17,7 @@ function Bookmarks() {
       <Header onButtonClick={handleNewBookmark} />
       <div className="bookmarks-container">
         {newBookmark}
-        {data.map(bookmarkData => {
+        {data.map((bookmarkData) => {
           return <BookmarkCard key={bookmarkData._id} data={bookmarkData} />;
         })}
         <div className="end-list-spacer"></div>

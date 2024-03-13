@@ -286,6 +286,10 @@ a {
 }
 
 /* landing styling */
+.landing {
+  width: 100%;
+  background-color: var(--bright);
+}
 .landing-container {
   width: 100%;
   max-width: 1200px;
@@ -362,7 +366,7 @@ a {
   border: none;
 }
 
-.login-form-buttons input {
+.login-form-buttons button {
   width: 100%;
   padding: 4px;
   display: flex;
@@ -371,16 +375,21 @@ a {
   border: none;
   margin: 0px;
   border-radius: 4px;
-  background-color: var(--bright);
+  color: var(--white);
+  background-color: var(--dark);
   border: 1px solid var(--dark);
   transition: var(--tr-fast);
   cursor: pointer;
 }
 
-.login-form-buttons input:hover {
-  background-color: var(--dark);
-  color: var(--bright);
+.login-form-buttons button:hover {
+  background-color: var(--bright);
+  color: var(--dark);
   transition: var(--tr-fast);
+}
+
+.username {
+  text-transform: capitalize;
 }
 
 @media screen and (max-width: 767px) {
@@ -517,15 +526,17 @@ a {
     color: var(--white);
   }
 
-  .login-form-buttons input {
-    border: 1px solid var(--dark);
+  .login-form-buttons button {
+    background-color: var(--bright);
+    color: var(--black);
+    border: 1px solid var(--bright);
     transition: var(--tr-fast);
     cursor: pointer;
   }
 
-  .login-form-buttons input:hover {
-    background-color: var(--bright);
-    color: var(--black);
+  .login-form-buttons button:hover {
+    background-color: var(--dark);
+    color: var(--white);
   }
 
   .login-form-container input::placeholder {
@@ -598,6 +609,10 @@ a {
   .save-button input:hover {
     background-color: var(--bright);
     color: var(--black);
+  }
+
+  .landing {
+    background-color: var(--black);
   }
 }
 

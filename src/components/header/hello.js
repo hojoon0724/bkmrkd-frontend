@@ -1,5 +1,10 @@
 function Hello() {
-  return <div className="user-name">Hello, `\username\` </div>
+  let username = localStorage.getItem('username');
+  return (
+    <div className="user-name">
+      Hello, <span className="username">{username}</span>{' '}
+    </div>
+  );
 }
 
-export default Hello
+export default Hello;

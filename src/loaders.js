@@ -11,5 +11,3 @@ export const bookmarksLoader = async () => {
   console.log(bookmarks);
   return bookmarks;
 };
-
-export const userLoader = async () => {};
