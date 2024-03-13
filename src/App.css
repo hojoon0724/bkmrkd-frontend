@@ -126,8 +126,10 @@ a {
 .logo {
   width: 100%;
 }
-.new-entry-button {
+.new-entry-button,
+.logout-button {
   background-color: var(--bright);
+  border: 1px solid var(--bright);
   padding: 1rem;
   width: 100%;
   border-radius: 8px;
@@ -136,7 +138,13 @@ a {
   align-items: center;
   cursor: pointer;
   margin-top: 16px;
-  border: 0px;
+  transition: var(--tr-fast);
+}
+
+.new-entry-button:hover,
+.logout-button:hover {
+  background-color: var(--dark);
+  color: var(--bright);
 }
 
 .new-entry-button::after {
@@ -155,15 +163,6 @@ a {
 }
 .user-name {
   margin: 0rem 1rem;
-}
-.logout-button {
-  background-color: var(--bright);
-  padding: 1rem;
-  margin-top: 24px;
-  border-radius: 8px;
-  border: 0px;
-  width: 100%;
-  cursor: pointer;
 }
 
 .bookmarks-container {
@@ -439,10 +438,17 @@ a {
     margin-top: 0px;
     margin-right: 20px;
     background-color: var(--bright);
+    border: 1px solid var(--bright);
     color: var(--black);
     width: 84px;
     padding: 4px;
     border-radius: 4px;
+  }
+
+  .new-entry-button:hover,
+  .logout-button:hover {
+    background-color: var(--dark);
+    color: var(--white);
   }
 
   .logo {
@@ -554,11 +560,17 @@ a {
   .top-container {
     color: var(--white);
   }
-  .new-entry-button {
-    background-color: var(--black);
-  }
+
+  .new-entry-button,
   .logout-button {
     background-color: var(--black);
+    border: 1px solid var(--black);
+  }
+
+  .new-entry-button:hover,
+  .logout-button:hover {
+    background-color: var(--bright);
+    color: var(--black);
   }
 
   .mobile-add-new {

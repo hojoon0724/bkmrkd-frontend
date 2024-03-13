@@ -7,7 +7,7 @@ import LogoutBtn from './header/logoutBtn';
 function Header({ onButtonClick }) {
   return (
     <div className="header">
-      <MobileAddNew />
+      <MobileAddNew action={onButtonClick} />
       <ul className="nav__menu">
         <div className="header-container">
           <div className="header-top-section">

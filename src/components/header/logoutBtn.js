@@ -10,9 +10,9 @@ function LogoutBtn() {
 
   return (
     <div>
-      <li className="logout-button" onClick={handleLogout}>
+      <div className="logout-button" onClick={handleLogout}>
         Logout{' '}
-      </li>
+      </div>
     </div>
   );
 }
