@@ -1,6 +1,6 @@
-function EditBtn({ action }) {
+function EditBtn({ onEditClick }) {
   return (
-    <div className="edit-button" onClick={action}>
+    <div className="edit-button" onClick={onEditClick}>
       <svg className="edit-svg" width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path
           fillRule="evenodd"

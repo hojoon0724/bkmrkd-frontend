@@ -173,7 +173,7 @@ a {
   padding: 8px 8px 8px 0px;
   margin-left: 8px;
 }
-.bookmark-card {
+.bookmark-data {
   background-color: var(--bright);
   color: var(--black);
   display: flex;
@@ -185,7 +185,7 @@ a {
   height: 5rem;
 }
 
-.bookmark-card a {
+.bookmark-data a {
   width: 100%;
 }
 .content {
