@@ -1,4 +1,4 @@
-import { redirect, useNavigate } from 'react-router-dom';
+import { redirect } from 'react-router-dom';
 
 const URL = process.env.REACT_APP_URL;
 

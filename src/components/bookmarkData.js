@@ -13,7 +13,7 @@ function BookmarkData({ data, bookmarkShow, handleEditSwitch, handleDelete }) {
 
   return (
     <div key={data._id} className="bookmark-data">
-      <a href={data.url}>
+      <a href={data.url} target="_blank">
         <div className="content">
           <div className="bookmark-name">{siteTitle}</div>
           <div className="bookmark-url">{siteUrl}</div>
