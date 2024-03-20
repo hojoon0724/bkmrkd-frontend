@@ -14,8 +14,28 @@ function BookmarkCards({ data }) {
     setEditingBookmarkId(id);
   }
 
-  function cancelEdit(id) {
+  function cancelEdit() {
+    console.log(`cancel edit run`);
     setEditingBookmarkId(' ');
+  }
+
+  async function handleEdit(id) {
+    console.log(`handle edit${id}`);
+    // const formData = await request.formData();
+    // const updatedBookmark = {
+    //   title: formData.get('title'),
+    //   url: formData.get('url')
+    // };
+
+    // await fetch(`${URL}/dashboard/${params.id}`, {
+    //   method: 'put',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //     Authorization: `Bearer ${localStorage.getItem('token')}`
+    //   },
+    //   body: JSON.stringify(updatedBookmark)
+    // });
+    // cancelEdit();
   }
 
   async function handleDelete(id) {
@@ -34,7 +54,13 @@ function BookmarkCards({ data }) {
       {data.map((bookmarkData) => (
         <div key={bookmarkData._id}>
           {editingBookmarkId === bookmarkData._id ? (
-            <BookmarkEditForm key={bookmarkData._id} data={bookmarkData} action={() => cancelEdit(bookmarkData._id)} />
+            <BookmarkEditForm
+              key={bookmarkData._id}
+              data={bookmarkData}
+              // editAction={() => handleEdit()}
+              updateAction={handleEdit}
+              cancelAction={cancelEdit}
+            />
           ) : (
             <BookmarkData
               key={bookmarkData._id}

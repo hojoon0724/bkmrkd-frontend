@@ -8,7 +8,6 @@ export const updateAction = async ({ request, params }) => {
     title: formData.get('title'),
     url: formData.get('url')
   };
-  console.log(updatedBookmark);
 
   await fetch(`${URL}/dashboard/${params.id}`, {
     method: 'put',
@@ -51,7 +50,7 @@ export const deleteAction = async ({ params }) => {
     }
   });
 
-  return redirect('/');
+  return redirect('/dashboard');
 };
 
 export const loginAction = async ({ req }) => {
