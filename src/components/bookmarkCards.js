@@ -11,16 +11,16 @@ function BookmarkCards({ data }) {
   const [editingBookmarkId, setEditingBookmarkId] = useState(null);
 
   async function handleEditSwitch(id) {
+    console.log(`edit switch ${id}`);
     setEditingBookmarkId(id);
   }
 
   function cancelEdit() {
-    console.log(`cancel edit run`);
     setEditingBookmarkId(' ');
   }
 
   async function handleEdit(id) {
-    console.log(`handle edit${id}`);
+    console.log(`handle edit ${id}`);
     // const formData = await request.formData();
     // const updatedBookmark = {
     //   title: formData.get('title'),
@@ -57,7 +57,6 @@ function BookmarkCards({ data }) {
             <BookmarkEditForm
               key={bookmarkData._id}
               data={bookmarkData}
-              // editAction={() => handleEdit()}
               updateAction={handleEdit}
               cancelAction={cancelEdit}
             />
