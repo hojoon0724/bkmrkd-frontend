@@ -42,8 +42,8 @@ function BookmarkCards({ data }) {
     await fetch(`${URL}/dashboard/${id}`, {
       method: 'DELETE',
       headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`
-      }
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
     });
     navigate('/dashboard');
   }

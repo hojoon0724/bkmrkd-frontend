@@ -10,7 +10,7 @@ function Auth() {
 
   let user = {
     username: username,
-    password: password
+    password: password,
   };
 
   async function handleSignup(e) {
@@ -20,8 +20,8 @@ function Auth() {
       method: 'POST',
       body: JSON.stringify(user),
       headers: {
-        'Content-Type': 'application/json'
-      }
+        'Content-Type': 'application/json',
+      },
     });
 
     if (response.status >= 400) {
@@ -34,13 +34,14 @@ function Auth() {
 
   async function handleLogin(e) {
     e.preventDefault();
+    // console.log(user);
 
     const response = await fetch(`${URL}/user/login`, {
       method: 'POST',
       body: JSON.stringify(user),
       headers: {
-        'Content-Type': 'application/json'
-      }
+        'Content-Type': 'application/json',
+      },
     });
 
     if (response.status >= 400) {
@@ -49,6 +50,7 @@ function Auth() {
     }
 
     const data = await response.json();
+    console.dir(data);
     localStorage.setItem('token', data.token);
     localStorage.setItem('username', data.username);
 
