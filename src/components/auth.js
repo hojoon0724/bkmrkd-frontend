@@ -50,7 +50,7 @@ function Auth() {
     }
 
     const data = await response.json();
-    console.dir(data);
+    // console.dir(data);
     localStorage.setItem('token', data.token);
     localStorage.setItem('username', data.username);
 

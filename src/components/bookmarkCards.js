@@ -9,22 +9,29 @@ const URL = process.env.REACT_APP_URL;
 function BookmarkCards({ data }) {
   const navigate = useNavigate();
   const [editingBookmarkId, setEditingBookmarkId] = useState(null);
+  const [editingBookmarkData, setEditingBookmarkData] = useState(null);
 
-  async function handleEditSwitch(id) {
-    console.log(`edit switch ${id}`);
-    setEditingBookmarkId(id);
+  async function handleEditSwitch(bookmarkData) {
+    console.log(`edit switch ${bookmarkData._id}`);
+    setEditingBookmarkId(bookmarkData._id);
+    setEditingBookmarkData(bookmarkData);
+  }
+
+  async function handleInputChange(newValue) {
+    console.log(newValue);
   }
 
   function cancelEdit() {
     setEditingBookmarkId(' ');
   }
 
-  async function handleEdit(id) {
-    console.log(`handle edit ${id}`);
+  async function handleEdit() {
+    console.log('handle edit function run');
+    // console.log(`handle edit ${bookmarkData._id}`);
     // const formData = await request.formData();
     // const updatedBookmark = {
     //   title: formData.get('title'),
-    //   url: formData.get('url')
+    //   url: formData.get('url'),
     // };
 
     // await fetch(`${URL}/dashboard/${params.id}`, {
@@ -56,7 +63,8 @@ function BookmarkCards({ data }) {
           {editingBookmarkId === bookmarkData._id ? (
             <BookmarkEditForm
               key={bookmarkData._id}
-              data={bookmarkData}
+              data={editingBookmarkData}
+              onInputChange={handleInputChange}
               updateAction={handleEdit}
               cancelAction={cancelEdit}
             />
@@ -64,7 +72,7 @@ function BookmarkCards({ data }) {
             <BookmarkData
               key={bookmarkData._id}
               data={bookmarkData}
-              handleEditSwitch={() => handleEditSwitch(bookmarkData._id)}
+              handleEditSwitch={() => handleEditSwitch(bookmarkData)}
               handleDelete={() => handleDelete(bookmarkData._id)}
             />
           )}
