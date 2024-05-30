@@ -10,39 +10,36 @@ function BookmarkCards({ data }) {
   const navigate = useNavigate();
   const [editingBookmarkId, setEditingBookmarkId] = useState(null);
   const [editingBookmarkData, setEditingBookmarkData] = useState(null);
+  const [bookmarks, setBookmarks] = useState(data);
 
-  async function handleEditSwitch(bookmarkData) {
-    console.log(`edit switch ${bookmarkData._id}`);
+  function handleEditSwitch(bookmarkData) {
     setEditingBookmarkId(bookmarkData._id);
     setEditingBookmarkData(bookmarkData);
   }
 
-  async function handleInputChange(newValue) {
-    console.log(newValue);
+  function handleInputChange(updatedBookmarkData) {
+    setEditingBookmarkData(updatedBookmarkData);
   }
 
   function cancelEdit() {
-    setEditingBookmarkId(' ');
+    setEditingBookmarkId(null);
   }
 
   async function handleEdit() {
-    console.log('handle edit function run');
-    // console.log(`handle edit ${bookmarkData._id}`);
-    // const formData = await request.formData();
-    // const updatedBookmark = {
-    //   title: formData.get('title'),
-    //   url: formData.get('url'),
-    // };
+    await fetch(`${URL}/dashboard/${editingBookmarkId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+      body: JSON.stringify(editingBookmarkData),
+    });
 
-    // await fetch(`${URL}/dashboard/${params.id}`, {
-    //   method: 'put',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //     Authorization: `Bearer ${localStorage.getItem('token')}`
-    //   },
-    //   body: JSON.stringify(updatedBookmark)
-    // });
-    // cancelEdit();
+    setBookmarks((prevBookmarks) =>
+      prevBookmarks.map((bookmark) => (bookmark._id === editingBookmarkId ? editingBookmarkData : bookmark))
+    );
+
+    cancelEdit();
   }
 
   async function handleDelete(id) {
@@ -52,13 +49,14 @@ function BookmarkCards({ data }) {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
     });
+    setBookmarks((prevBookmarks) => prevBookmarks.filter((bookmark) => bookmark._id !== id));
     navigate('/dashboard');
   }
 
   return (
     <div className="bookmark-card">
       <BookmarkForm />
-      {data.map((bookmarkData) => (
+      {bookmarks.map((bookmarkData) => (
         <div key={bookmarkData._id}>
           {editingBookmarkId === bookmarkData._id ? (
             <BookmarkEditForm
