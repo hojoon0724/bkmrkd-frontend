@@ -194,6 +194,7 @@ a {
   align-items: center;
   justify-content: space-between;
   height: 5rem;
+  animation: fade-in 1s;
 }
 
 .bookmark-data a {
@@ -724,5 +725,15 @@ a {
   }
   .logo-box > .logo {
     background-color: var(--black);
+  }
+}
+
+/* animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100;
   }
 }

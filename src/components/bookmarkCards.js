@@ -53,6 +53,8 @@ function BookmarkCards({ data }) {
     navigate('/dashboard');
   }
 
+  async function handleCreate() {}
+
   return (
     <div className="bookmark-card">
       <BookmarkForm />
