@@ -1,18 +1,41 @@
-import { Form } from 'react-router-dom';
+import { useState } from 'react';
 
-function BookmarkForm() {
+function BookmarkForm({ data, onInputChange, createAction }) {
+  const [formData, setFormData] = useState({
+    ...data,
+  });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    const updatedFormData = { ...formData, [name]: value };
+    setFormData(updatedFormData);
+    onInputChange(updatedFormData);
+  };
+
   return (
-    <Form action="create" method="post">
-      <div className="bookmark-data">
-        <div className="content">
-          <input className="bookmark-name-form" name="title" type="text" placeholder="Name" />
-          <input className="bookmark-url-form" name="url" type="url" placeholder="URL" />
-        </div>
-        <div className="save-button">
-          <input type="submit" value={'save'} />
-        </div>
+    <div className="bookmark-data">
+      <div className="content">
+        <input
+          className="bookmark-name-form"
+          name="title"
+          type="text"
+          placeholder="Name"
+          value={formData.title}
+          onChange={handleChange}
+        />
+        <input
+          className="bookmark-url-form"
+          name="url"
+          type="url"
+          placeholder="URL"
+          value={formData.url}
+          onChange={handleChange}
+        />
       </div>
-    </Form>
+      <div className="save-button">
+        <input type="submit" onClick={createAction} />
+      </div>
+    </div>
   );
 }
 

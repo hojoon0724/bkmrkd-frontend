@@ -8,6 +8,7 @@ const URL = process.env.REACT_APP_URL;
 
 function BookmarkCards({ data }) {
   const navigate = useNavigate();
+  const [newBookmark, setNewBookmark] = useState(null);
   const [editingBookmarkId, setEditingBookmarkId] = useState(null);
   const [editingBookmarkData, setEditingBookmarkData] = useState(null);
   const [bookmarks, setBookmarks] = useState(data);
@@ -19,6 +20,10 @@ function BookmarkCards({ data }) {
 
   function handleInputChange(updatedBookmarkData) {
     setEditingBookmarkData(updatedBookmarkData);
+  }
+
+  function handleNewBookmarkInputChange(newBookmark) {
+    setNewBookmark(newBookmark);
   }
 
   function cancelEdit() {
@@ -34,11 +39,9 @@ function BookmarkCards({ data }) {
       },
       body: JSON.stringify(editingBookmarkData),
     });
-
     setBookmarks((prevBookmarks) =>
       prevBookmarks.map((bookmark) => (bookmark._id === editingBookmarkId ? editingBookmarkData : bookmark))
     );
-
     cancelEdit();
   }
 
@@ -53,11 +56,30 @@ function BookmarkCards({ data }) {
     navigate('/dashboard');
   }
 
-  async function handleCreate() {}
+  async function handleCreate() {
+    const response = await fetch(`${URL}/dashboard`, {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+      body: JSON.stringify(newBookmark),
+    });
+    if (response.ok) {
+      const createdBookmark = await response.json();
+      console.log(createdBookmark);
+      setBookmarks((prevBookmarks) => [createdBookmark, ...prevBookmarks]);
+      setNewBookmark(null);
+      console.log(bookmarks);
+      navigate('/dashboard');
+    } else {
+      console.error('Failed to create bookmark');
+    }
+  }
 
   return (
     <div className="bookmark-card">
-      <BookmarkForm />
+      <BookmarkForm data={newBookmark} onInputChange={handleNewBookmarkInputChange} createAction={handleCreate} />
       {bookmarks.map((bookmarkData) => (
         <div key={bookmarkData._id}>
           {editingBookmarkId === bookmarkData._id ? (
