@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import seedData from '../seedData';
 
 const URL = process.env.REACT_APP_URL;
 
@@ -7,6 +8,8 @@ function Auth() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+
+  const seed = seedData;
 
   let user = {
     username: username,
@@ -34,7 +37,13 @@ function Auth() {
 
   async function handleLogin(e) {
     e.preventDefault();
-    // console.log(user);
+
+    if (user.username === 'tester') {
+      console.log('tester login active');
+      for (let i in seed) {
+        console.log(seed[i]);
+      }
+    }
 
     const response = await fetch(`${URL}/user/login`, {
       method: 'POST',
@@ -50,7 +59,7 @@ function Auth() {
     }
 
     const data = await response.json();
-    // console.dir(data);
+    console.dir(data);
     localStorage.setItem('token', data.token);
     localStorage.setItem('username', data.username);
 
@@ -83,6 +92,20 @@ function Auth() {
           <button type="submit" onClick={handleLogin}>
             Login
           </button>
+        </div>
+        <div className="tester-login-info">
+          <h4>Tester Login</h4>
+          <table className="tester-login-table">
+            <tr>
+              <td>Username:</td>
+              <td>tester</td>
+            </tr>
+            <tr>
+              <td>Password:</td>
+              <td>t</td>
+            </tr>
+          </table>
+          <div className="server-note">The server could be asleep and can take up to 60 seconds to wake up.</div>
         </div>
       </form>
     </div>
